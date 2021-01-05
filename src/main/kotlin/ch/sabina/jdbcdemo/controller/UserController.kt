@@ -26,14 +26,14 @@ class UserController {
 
     // Inserting a new User
     @PostMapping(path = ["/user/new"])
-    fun addNewUser(@RequestBody userModel: User): String {
+    fun addNewUser(@RequestBody user: User): String {
         ResponseEntity(userService.addNewUser(user), HttpStatus.CREATED)
-        return "${userModel.name} has been added to database"
+        return "${user.name} has been added to database"
     }
 
     // Updating a User
     @PutMapping(path = ["/user/{id}"])
-    fun updateUser(@RequestBody userModel: User, @PathVariable("id") id: Int): ResponseEntity<UserModel> {
+    fun updateUser(@RequestBody userModel: User, @PathVariable("id") id: Int): ResponseEntity<User> {
         System.out.println("$id = $userModel")
         userService.updateUser(userModel, id)
         return ResponseEntity(userModel, HttpStatus.OK)

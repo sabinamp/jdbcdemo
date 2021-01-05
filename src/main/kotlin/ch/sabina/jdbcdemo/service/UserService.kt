@@ -2,6 +2,8 @@ package ch.sabina.jdbcdemo.service
 
 import org.springframework.stereotype.Service
 import ch.sabina.jdbcdemo.repository.*
+import org.springframework.beans.factory.annotation.Autowired
+import ch.sabina.jdbcdemo.model.*
 
 @Service
 class UserService: UserInterface {
@@ -20,7 +22,7 @@ class UserService: UserInterface {
         userRepository.addNewUser(userModel)
     }
 
-    override fun updateUser(userModel: UserModel, id: Int) {
+    override fun updateUser(userModel: User, id: Int) {
         userRepository.updateUser(userModel, id)
     }
 
