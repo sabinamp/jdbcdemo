@@ -19,20 +19,20 @@ class UserController {
     }
 
     // Getting a User by ID
-    @GetMapping(path = ["/user/{id}"])
+    @GetMapping(path = ["/users/{id}"])
     fun getUserByID(@PathVariable("id") id: Int): ResponseEntity<User> {
         return ResponseEntity(userService.getUserByID(id), HttpStatus.OK)
     }
 
     // Inserting a new User
-    @PostMapping(path = ["/user/new"])
+    @PostMapping(path = ["/users/new"])
     fun addNewUser(@RequestBody user: User): String {
         ResponseEntity(userService.addNewUser(user), HttpStatus.CREATED)
         return "${user.name} has been added to database"
     }
 
     // Updating a User
-    @PutMapping(path = ["/user/{id}"])
+    @PutMapping(path = ["/users/{id}"])
     fun updateUser(@RequestBody userModel: User, @PathVariable("id") id: Int): ResponseEntity<User> {
         System.out.println("$id = $userModel")
         userService.updateUser(userModel, id)
@@ -40,7 +40,7 @@ class UserController {
     }
 
     // Deleting a User
-    @DeleteMapping(path = ["/user/{id}"])
+    @DeleteMapping(path = ["/users/{id}"])
     fun deleteUser(@PathVariable("id") id: Int): String {
         userService.deleteUser(id)
         return "$id User has been deleted."
