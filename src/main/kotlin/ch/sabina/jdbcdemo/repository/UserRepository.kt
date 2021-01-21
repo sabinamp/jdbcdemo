@@ -10,7 +10,6 @@ class UserRepository: UserInterface {
     @Autowired
     private lateinit var jdbcTemplate: JdbcTemplate
 
-
     override fun getAllUserList(): List<User> {
         val selectAllSql = "SELECT * FROM user"
         //jdbcTemplate.query() will execute the query and fetch the data

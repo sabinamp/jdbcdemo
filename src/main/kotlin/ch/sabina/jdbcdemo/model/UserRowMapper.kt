@@ -6,7 +6,7 @@ import java.sql.SQLException
 
 class UserRowMapper : RowMapper<User> {
 
-    //RowMapper is an interface that is provided by the Spring JDBC
+    //RowMapper is an interface that is provided by Spring JDBC
     //It uses the query() function of the JdbcTemplate class
     //override mapRow(row: ResultSet, rowNumber: Int): User?
     @Throws(SQLException::class)
